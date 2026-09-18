@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/5 py-10 text-center">
       <Container>
-        <p className="text-body-sm">© {year} Sehanya Ranasingha. All rights reserved.</p>
+        <p className="text-body-sm">(c) {year} Sehanya Ranasingha. All rights reserved.</p>
         <p className="mt-2 text-xs text-slate-600">
-          Built with React · TypeScript · Tailwind
+          Built with React - TypeScript - Tailwind
         </p>
       </Container>
     </footer>

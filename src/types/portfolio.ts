@@ -3,6 +3,10 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
+  demoHighlights?: string[];
+  previewImage?: string;
+  previewAlt?: string;
+  demoUrl?: string;
   techStack: string[];
   category?: string;
   categoryClass?: string;

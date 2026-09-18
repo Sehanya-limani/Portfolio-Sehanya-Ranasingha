@@ -13,7 +13,7 @@ export default function Stats() {
             >
               <div className="stat-number">
                 {stat.value}
-                {stat.value !== "AI" && "+"}
+                {stat.label === "Months Experience" && "+"}
               </div>
               <p className="mt-2 text-xs text-slate-400 sm:text-sm">{stat.label}</p>
             </div>

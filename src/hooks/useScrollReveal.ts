@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-/** Global scroll-reveal observer — matches HTML reference behavior */
+/** Global scroll-reveal observer - matches HTML reference behavior */
 export default function useScrollReveal() {
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");

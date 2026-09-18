@@ -1,6 +1,7 @@
-import { Download, ChevronRight } from "lucide-react";
+import { ChevronRight, Mail } from "lucide-react";
 
 import heroData from "../../data/hero";
+import { socialLinks } from "../../data/contact";
 import Container from "../ui/container/Container";
 import Tilt3D from "../common/Tilt3D";
 import AnimatedText from "../common/AnimatedText";
@@ -15,7 +16,6 @@ export default function Hero() {
     >
       <Container>
         <div className="split-grid split-grid--hero">
-          {/* Profile — LEFT (HTML-style 3D: tilt + float shapes + cube) */}
           <div className="order-1 flex justify-center lg:order-none lg:justify-end">
             <div className="hero-profile-wrap relative">
               <div className="float-shape absolute -left-12 -top-12 h-20 w-20 rounded-full bg-cyan-400/20 blur-3xl" />
@@ -39,7 +39,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Content — RIGHT */}
           <div className="hero-content order-2 text-center lg:order-none lg:text-left">
             <div className="hero-intro">
               <span className="badge animate-fade-up inline-flex">
@@ -61,10 +60,10 @@ export default function Hero() {
             </div>
 
             <div className="hero-actions animate-fade-up animate-fade-up-delay-4">
-              <a href={heroData.resume} download>
+              <a href={socialLinks.email}>
                 <button type="button" className="btn-primary text-sm sm:text-base">
-                  <Download size={18} strokeWidth={2.5} />
-                  Download Resume
+                  <Mail size={18} strokeWidth={2.5} />
+                  Email Me
                 </button>
               </a>
               <a href="#projects">

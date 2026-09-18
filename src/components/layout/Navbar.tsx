@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { navLinks } from "../../data/navLinks";
-import heroData from "../../data/hero";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,57 +46,57 @@ export default function Navbar() {
             }`}
           >
             <div className="navbar-grid">
-            {/* Left — Logo */}
-            <a href="#home" className="navbar-left group flex items-center gap-2.5 no-underline sm:gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 text-sm font-bold text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10">
-                S
-              </div>
-              <div className="hidden min-w-0 lg:block">
-                <p className="truncate text-sm font-bold leading-tight xl:text-base">
-                  <span className="gradient-text">Sehanya Ranasingha</span>
-                </p>
-                <p className="truncate text-[10px] text-slate-500 xl:text-xs">
-                  AI & Full Stack Developer
-                </p>
-              </div>
-            </a>
+              <a
+                href="#home"
+                className="navbar-left group flex items-center gap-2.5 no-underline sm:gap-3"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 text-sm font-bold text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)] transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10">
+                  S
+                </div>
+                <div className="hidden min-w-0 lg:block">
+                  <p className="truncate text-sm font-bold leading-tight xl:text-base">
+                    <span className="gradient-text">Sehanya Ranasingha</span>
+                  </p>
+                  <p className="truncate text-[10px] text-slate-500 xl:text-xs">
+                    Internship Candidate
+                  </p>
+                </div>
+              </a>
 
-            {/* Center — Navigation with underline animation */}
-            <nav className="navbar-center navbar-nav hidden lg:flex">
-              {navLinks.map((link) => {
-                const id = link.href.replace("#", "");
-                return (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    className={`nav-link ${activeSection === id ? "active" : ""}`}
+              <nav className="navbar-center navbar-nav hidden lg:flex">
+                {navLinks.map((link) => {
+                  const id = link.href.replace("#", "");
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      className={`nav-link ${activeSection === id ? "active" : ""}`}
+                    >
+                      {link.title}
+                    </a>
+                  );
+                })}
+              </nav>
+
+              <div className="navbar-right">
+                <a href="#contact" className="hidden sm:inline-flex">
+                  <button
+                    type="button"
+                    className="btn-primary rounded-xl px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
                   >
-                    {link.title}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Right — Actions */}
-            <div className="navbar-right">
-              <a href={heroData.resume} download className="hidden sm:inline-flex">
+                    Contact Me
+                  </button>
+                </a>
                 <button
                   type="button"
-                  className="btn-primary rounded-xl px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white transition hover:border-cyan-400/30 lg:hidden"
+                  aria-label="Toggle menu"
                 >
-                  Resume
+                  {mobileOpen ? <X size={20} /> : <Menu size={20} />}
                 </button>
-              </a>
-              <button
-                type="button"
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white transition hover:border-cyan-400/30 lg:hidden"
-                aria-label="Toggle menu"
-              >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </header>
@@ -132,15 +131,10 @@ export default function Navbar() {
                   </motion.a>
                 );
               })}
-              <a
-                href={heroData.resume}
-                download
-                onClick={() => setMobileOpen(false)}
-                className="mt-6"
-              >
+              <a href="#contact" onClick={() => setMobileOpen(false)} className="mt-6">
                 <button type="button" className="btn-primary">
-                  <Download size={18} />
-                  Download Resume
+                  <Mail size={18} />
+                  Contact Me
                 </button>
               </a>
             </nav>

@@ -83,7 +83,7 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-/** @deprecated Use skillCategories — kept for SkillCategoryIcon type compat */
+/** @deprecated Use skillCategories - kept for SkillCategoryIcon type compat */
 export type SkillBarCategory = SkillCategory & {
   barColor: string;
   skills: { name: string; level: number }[];
@@ -97,7 +97,7 @@ export const skillBarCategories: SkillBarCategory[] = skillCategories.map((cat) 
 
 export const strengths = [
   "Problem Solver",
-  "AI Enthusiast",
-  "Full Stack",
-  "Cloud Ready",
+  "Full Stack Learner",
+  "AI Focused",
+  "Team Contributor",
 ];

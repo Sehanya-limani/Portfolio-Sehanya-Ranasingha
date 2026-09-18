@@ -12,12 +12,11 @@ export default function Experience() {
       <SectionHeader
         badge="Career"
         title="Experience"
-        description="Professional journey building real-world applications and delivering scalable solutions."
+        description="Professional journey building real-world applications and delivering maintainable solutions."
         variant="alt"
       />
 
       <div className="split-grid split-grid--start">
-        {/* Left — overview */}
         <Reveal>
           <div className="premium-card card-inner lg:sticky lg:top-28">
             <div className="card-header-icon mb-4 bg-cyan-500/15">
@@ -47,7 +46,6 @@ export default function Experience() {
           </div>
         </Reveal>
 
-        {/* Right — timeline */}
         <div className="card-stack">
           {experiences.map((exp) => (
             <Reveal key={exp.id}>
@@ -58,19 +56,19 @@ export default function Experience() {
                       <span className="section-label text-cyan-400">{exp.period}</span>
                       <h3 className="text-card-title-lg mt-1 text-white">{exp.role}</h3>
                       <p className="text-body-sm mt-0.5">
-                        {exp.company} · {exp.type}
+                        {exp.company} - {exp.type}
                       </p>
                     </div>
                     <span className="badge-tech w-fit text-xs">{exp.location}</span>
                   </div>
 
                   <ul className="mt-5 space-y-2.5">
-                    {exp.description.map((item, i) => (
+                    {exp.description.map((item) => (
                       <li
-                        key={i}
+                        key={item}
                         className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-300"
                       >
-                        <span className="mt-1 shrink-0 text-cyan-400">▸</span>
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                         {item}
                       </li>
                     ))}

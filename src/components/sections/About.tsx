@@ -30,7 +30,6 @@ export default function About() {
       />
 
       <div className="about-layout">
-        {/* Short intro */}
         <Reveal>
           <div className="about-intro premium-card card-inner">
             <div className="flex items-start gap-4">
@@ -51,7 +50,6 @@ export default function About() {
           </div>
         </Reveal>
 
-        {/* Quick facts */}
         <div className="about-highlights">
           {aboutData.highlights.map(({ icon, label, value }) => {
             const Icon = icons[icon as keyof typeof icons];
@@ -69,7 +67,6 @@ export default function About() {
           })}
         </div>
 
-        {/* Education + objective */}
         <div className="split-grid split-grid--start">
           <Reveal>
             <div className="about-info-card premium-card card-inner">
@@ -84,7 +81,7 @@ export default function About() {
                 {aboutData.education.institution}
               </p>
               <p className="text-body-sm mt-2">
-                {aboutData.education.status} · {aboutData.education.expectedGraduation}
+                {aboutData.education.status} - {aboutData.education.expectedGraduation}
               </p>
             </div>
           </Reveal>

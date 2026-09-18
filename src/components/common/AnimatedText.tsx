@@ -13,8 +13,7 @@ export default function AnimatedText() {
         2000,
         "Spring Boot Developer",
         2000,
-        "Cloud Enthusiast",
-        2000,
+       
       ]}
       wrapper="span"
       speed={45}

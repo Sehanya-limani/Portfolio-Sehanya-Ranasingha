@@ -3,15 +3,14 @@ import type { HeroData } from "../types/hero";
 export const heroData: HeroData = {
   name: "J.A.D. Sehanya Limani Ranasingha",
 
-  title: "AI & Full Stack Developer",
+  title: "Software Engineering Internship Candidate",
 
   subtitle: "Computer Science Undergraduate",
 
-  professionalTitle:
-    "AI & Full Stack Developer | Computer Science Undergraduate",
+  professionalTitle: "Computer Science Undergraduate | Full Stack Developer",
 
   tagline:
-    "Building intelligent, scalable web applications with React, Spring Boot, and Artificial Intelligence.",
+    "Third-year Computer Science undergraduate at SLIIT building full stack and AI-focused web applications with React, Spring Boot, and modern databases.",
 
   resume: "/resume/resume.pdf",
 
@@ -19,18 +18,19 @@ export const heroData: HeroData = {
 
   techBadges: [
     "React",
-    "Spring Boot",
     "TypeScript",
+    "Spring Boot",
+    "Java",
     "PostgreSQL",
-    "Docker",
-    "AI",
+    "REST APIs",
+    "GitHub",
   ],
 
   stats: [
     { value: "6", label: "Months Experience" },
-    { value: "30", label: "Technologies" },
-    { value: "10", label: "Projects" },
-    { value: "AI", label: "Focused" },
+    { value: "3", label: "Core Projects" },
+    { value: "3rd", label: "Year at SLIIT" },
+    { value: "AI", label: "Career Focus" },
   ],
 };
 
