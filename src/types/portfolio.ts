@@ -15,6 +15,7 @@ export interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
+  contribution?: string;
   gradient: string;
 }
 
@@ -27,6 +28,15 @@ export interface Experience {
   type: "Internship" | "Full-time" | "Part-time" | "Freelance";
   description: string[];
   techStack: string[];
+}
+
+export interface JourneyMilestone {
+  id: number;
+  step: string;
+  title: string;
+  description: string;
+  icon: "education" | "code" | "work" | "target";
+  accent: "cyan" | "violet" | "amber" | "emerald";
 }
 
 export interface Certificate {

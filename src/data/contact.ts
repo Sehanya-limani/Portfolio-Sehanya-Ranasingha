@@ -2,12 +2,30 @@ import type { ContactInfo } from "../types/portfolio";
 
 export const contactInfo: ContactInfo = {
   email: "sehanyaranasingha@gmail.com",
-  location: "Sri Lanka",
+  location: "Gampaha, Sri Lanka",
   availability: "Open to software engineering internships",
 };
 
 export const socialLinks = {
-  github: "https://github.com/seha-limani",
-  linkedin: "https://www.linkedin.com/in/sehanya-ranasingha-053010331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  github: "https://github.com/Sehanya-limani",
+  linkedin: "https://www.linkedin.com/in/sehanya-ranasingha-053010331/",
   email: "mailto:sehanyaranasingha@gmail.com",
 };
+
+export const profilePaths = [
+  {
+    label: "GitHub",
+    value: "github.com/Sehanya-limani",
+    href: socialLinks.github,
+  },
+  {
+    label: "LinkedIn",
+    value: "Sehanya Ranasingha",
+    href: socialLinks.linkedin,
+  },
+  {
+    label: "Email",
+    value: contactInfo.email,
+    href: socialLinks.email,
+  },
+];

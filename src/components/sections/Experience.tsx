@@ -1,92 +1,133 @@
-import { Briefcase, Code2 } from "lucide-react";
+import { BriefcaseBusiness, Code2, GraduationCap, Target } from "lucide-react";
 
 import { experiences } from "../../data/experience";
+import { journeyMilestones } from "../../data/journey";
 import Section from "../common/Section";
 import SectionHeader from "../common/SectionHeader";
 import Reveal from "../common/Reveal";
-import Card3D from "../common/Card3D";
+
+const journeyIcons = {
+  education: GraduationCap,
+  code: Code2,
+  work: BriefcaseBusiness,
+  target: Target,
+};
+
+const accentClasses = {
+  cyan: "border-cyan-400/35 bg-cyan-400/10 text-cyan-300",
+  violet: "border-violet-400/35 bg-violet-400/10 text-violet-300",
+  amber: "border-amber-400/35 bg-amber-400/10 text-amber-300",
+  emerald: "border-emerald-400/35 bg-emerald-400/10 text-emerald-300",
+};
 
 export default function Experience() {
+  const experience = experiences[0];
+
   return (
     <Section id="experience" variant="muted">
       <SectionHeader
-        badge="Career"
-        title="Experience"
-        description="Professional journey building real-world applications and delivering maintainable solutions."
+        badge="My Journey"
+        title="Learning by Building"
+        description="The path from computer science fundamentals to professional development and my next internship."
         variant="alt"
       />
 
-      <div className="split-grid split-grid--start">
+      <div className="journey-layout">
         <Reveal>
-          <div className="premium-card card-inner lg:sticky lg:top-28">
-            <div className="card-header-icon mb-4 bg-cyan-500/15">
-              <Briefcase className="h-5 w-5 text-cyan-400" />
-            </div>
-            <h3 className="text-subsection gradient-text">Career Journey</h3>
-            <p className="text-body-sm mt-3">
-              Hands-on experience developing full stack applications for real clients,
-              from frontend interfaces to backend APIs and database design.
-            </p>
-            <div className="mt-6 space-y-3">
-              <div className="highlight-box flex items-center gap-3">
-                <Code2 className="h-4 w-4 shrink-0 text-purple-400" />
-                <div>
-                  <p className="section-label text-[10px] text-slate-500">Focus</p>
-                  <p className="text-sm font-medium text-white">Full Stack Development</p>
+          <aside className="journey-summary premium-card">
+            <div className="journey-summary-grid" aria-hidden="true" />
+            <div className="relative z-10">
+              <span className="section-label text-cyan-300">Current Chapter</span>
+              <h3 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">
+                Ready to contribute, learn, and grow.
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-slate-300">
+                I bring academic foundations, hands-on project work, and six months of
+                professional development experience to an internship team.
+              </p>
+
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                <div className="journey-metric">
+                  <strong>3rd</strong>
+                  <span>Year at SLIIT</span>
+                </div>
+                <div className="journey-metric">
+                  <strong>6+</strong>
+                  <span>Months experience</span>
+                </div>
+                <div className="journey-metric">
+                  <strong>5</strong>
+                  <span>Featured projects</span>
+                </div>
+                <div className="journey-metric">
+                  <strong>QA</strong>
+                  <span>Testing mindset</span>
                 </div>
               </div>
-              <div className="highlight-box flex items-center gap-3">
-                <Briefcase className="h-4 w-4 shrink-0 text-cyan-400" />
-                <div>
-                  <p className="section-label text-[10px] text-slate-500">Experience</p>
-                  <p className="text-sm font-medium text-white">6+ Months Professional</p>
-                </div>
-              </div>
             </div>
-          </div>
+          </aside>
         </Reveal>
 
-        <div className="card-stack">
-          {experiences.map((exp) => (
-            <Reveal key={exp.id}>
-              <Card3D className="h-full">
-                <div className="premium-card card-inner hover-lift-sm">
-                  <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-                    <div>
-                      <span className="section-label text-cyan-400">{exp.period}</span>
-                      <h3 className="text-card-title-lg mt-1 text-white">{exp.role}</h3>
-                      <p className="text-body-sm mt-0.5">
-                        {exp.company} - {exp.type}
-                      </p>
-                    </div>
-                    <span className="badge-tech w-fit text-xs">{exp.location}</span>
+        <div className="journey-timeline">
+          {journeyMilestones.map((item, index) => {
+            const Icon = journeyIcons[item.icon];
+            return (
+              <Reveal key={item.id}>
+                <article className="journey-step">
+                  <div className="journey-rail" aria-hidden="true">
+                    <span className={accentClasses[item.accent]}>
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    {index < journeyMilestones.length - 1 && <i />}
                   </div>
-
-                  <ul className="mt-5 space-y-2.5">
-                    {exp.description.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-300"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="tag-group mt-5">
-                    {exp.techStack.map((tech) => (
-                      <span key={tech} className="badge-tech text-[10px]">
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="journey-copy">
+                    <span className="section-label text-slate-500">{item.step}</span>
+                    <h3 className="mt-2 text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
+                      {item.description}
+                    </p>
                   </div>
-                </div>
-              </Card3D>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
+
+      {experience && (
+        <Reveal>
+          <article className="experience-strip">
+            <div className="experience-company">
+              <div className="card-header-icon bg-cyan-500/15">
+                <BriefcaseBusiness className="h-5 w-5 text-cyan-300" />
+              </div>
+              <div>
+                <span className="section-label text-cyan-300">{experience.period}</span>
+                <h3 className="mt-1 text-xl font-semibold text-white">
+                  {experience.role} at {experience.company}
+                </h3>
+                <p className="mt-1 text-sm text-slate-400">
+                  {experience.type} - {experience.location}
+                </p>
+              </div>
+            </div>
+
+            <ul className="experience-points">
+              {experience.description.slice(0, 3).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+
+            <div className="tag-group">
+              {experience.techStack.map((tech) => (
+                <span key={tech} className="badge-tech text-[11px]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </article>
+        </Reveal>
+      )}
     </Section>
   );
 }

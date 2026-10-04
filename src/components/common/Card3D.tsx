@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import type { ReactNode } from "react";
 
 interface Card3DProps {
@@ -8,17 +8,21 @@ interface Card3DProps {
 
 export default function Card3D({ children, className = "" }: Card3DProps) {
   return (
-    <motion.div
-      whileHover={{
-        y: -8,
-        rotateX: 2,
-        rotateY: -2,
-        transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
-      }}
-      style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+    <Tilt
+      tiltMaxAngleX={10}
+      tiltMaxAngleY={10}
+      perspective={1000}
+      transitionSpeed={1000}
+      scale={1.015}
+      gyroscope={false}
       className={className}
+      glareEnable={true}
+      glareMaxOpacity={0.12}
+      glareColor="#ffffff"
+      glarePosition="all"
+      glareBorderRadius="1.25rem"
     >
       {children}
-    </motion.div>
+    </Tilt>
   );
 }

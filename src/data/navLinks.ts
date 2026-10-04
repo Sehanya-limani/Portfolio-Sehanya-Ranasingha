@@ -27,7 +27,7 @@ export const navLinks: NavLinkItem[] = [
   },
   {
     id: 5,
-    title: "Experience",
+    title: "My Journey",
     href: "#experience",
   },
   {

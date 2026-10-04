@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Clock, ExternalLink, Mail, MapPin, Phone, Send } from "lucide-react";
 
-import { contactInfo } from "../../data/contact";
+import { contactInfo, profilePaths } from "../../data/contact";
 import Section from "../common/Section";
 import SectionHeader from "../common/SectionHeader";
 import Reveal from "../common/Reveal";
@@ -76,6 +76,24 @@ export default function Contact() {
                     )}
                   </div>
                 </div>
+              ))}
+            </div>
+
+            <div className="profile-paths">
+              {profilePaths.slice(0, 2).map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="profile-path"
+                >
+                  <span>
+                    <small>{item.label}</small>
+                    <strong>{item.value}</strong>
+                  </span>
+                  <ExternalLink className="h-4 w-4 shrink-0" />
+                </a>
               ))}
             </div>
 

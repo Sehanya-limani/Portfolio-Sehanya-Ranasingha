@@ -118,6 +118,24 @@
   transform-style: preserve-3d;
 }
 
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-progress {
+  0% {
+    transform: translateX(-120%);
+  }
+  55% {
+    transform: translateX(65%);
+  }
+  100% {
+    transform: translateX(260%);
+  }
+}
+
 .cube-face {
   position: absolute;
   width: 100%;
@@ -248,6 +266,8 @@
 @media (prefers-reduced-motion: reduce) {
   .float-shape,
   .float-shape-2,
+  .loader-orbit,
+  .loader-progress span,
   .cube-spinner {
     animation: none;
   }

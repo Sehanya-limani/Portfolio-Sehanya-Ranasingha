@@ -1,27 +1,35 @@
 import { ExternalLink } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
 import { projects } from "../../data/projects";
 import Section from "../common/Section";
 import SectionHeader from "../common/SectionHeader";
 import Reveal from "../common/Reveal";
-import Card3D from "../common/Card3D";
 
 export default function Projects() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <Section id="projects">
       <SectionHeader
         badge="Portfolio"
         title="Featured Projects"
-        description="A selection of projects showcasing full stack development, AI integration, and modern UI."
+        description="Selected projects across commerce, legal services, pharmacy inventory, and full stack application development."
         variant="alt"
       />
 
       <div className="card-grid card-grid-2">
         {projects.map((project) => (
           <Reveal key={project.id}>
-            <Card3D className="h-full">
-              <article className="project-card premium-card card-inner flex h-full flex-col gap-5 overflow-hidden">
+            <motion.article
+              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              whileHover={reduceMotion ? undefined : { y: -5 }}
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+              className="project-card premium-card card-inner flex h-full flex-col gap-5 overflow-hidden"
+            >
                 <div className="project-preview relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/[0.03]">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`} />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.12),transparent_30%)]" />
@@ -42,6 +50,11 @@ export default function Projects() {
                               Featured Demo
                             </span>
                           )}
+                          {project.contribution && (
+                            <span className="badge-tech border border-amber-400/25 bg-amber-400/10 text-[10px] uppercase tracking-[0.16em] text-amber-200">
+                              {project.contribution}
+                            </span>
+                          )}
                         </div>
                         <h3 className="text-card-title-lg text-white">{project.title}</h3>
                       </div>
@@ -60,6 +73,7 @@ export default function Projects() {
                         <img
                           src={project.previewImage}
                           alt={project.previewAlt ?? `${project.title} preview`}
+                          loading="lazy"
                           className="project-demo-image h-full w-full rounded-[0.9rem] object-cover"
                         />
                       ) : (
@@ -110,45 +124,51 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {(project.github || project.live || project.demoUrl) && (
-                  <div className="mt-auto flex flex-wrap gap-3 border-t border-white/[0.08] pt-4">
-                    {project.github && (
+                <div className="project-actions mt-auto border-t border-white/[0.08] pt-4">
+                    {project.github ? (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-slate-300 transition hover:border-cyan-400/40 hover:text-cyan-300 sm:text-sm"
+                        className="project-action project-action--secondary"
                       >
                         <FaGithub size={14} />
                         Source Code
                       </a>
+                    ) : (
+                      <span className="project-action project-action--disabled">
+                        <FaGithub size={14} />
+                        GitHub not published
+                      </span>
                     )}
-                    {project.live && (
+                    {project.live ? (
                       <a
                         href={project.live}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-4 py-2 text-xs font-medium text-slate-950 transition hover:bg-cyan-300 sm:text-sm"
+                        className="project-action project-action--primary"
                       >
                         <ExternalLink size={14} />
                         Live Demo
                       </a>
-                    )}
-                    {project.demoUrl && !project.live && (
+                    ) : project.demoUrl ? (
                       <a
                         href={project.demoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-violet-400 px-4 py-2 text-xs font-medium text-white transition hover:bg-violet-300 sm:text-sm"
+                        className="project-action project-action--primary"
                       >
                         <ExternalLink size={14} />
                         Demo Preview
                       </a>
+                    ) : (
+                      <span className="project-action project-action--disabled">
+                        <ExternalLink size={14} />
+                        Demo not published
+                      </span>
                     )}
                   </div>
-                )}
-              </article>
-            </Card3D>
+            </motion.article>
           </Reveal>
         ))}
       </div>

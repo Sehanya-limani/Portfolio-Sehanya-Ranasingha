@@ -6,7 +6,7 @@ export const experiences: Experience[] = [
     role: "Developer",
     company: "Zerocode",
     period: "6 Months",
-    location: "Sri Lanka",
+    location: "Gampaha, Sri Lanka",
     type: "Full-time",
     description: [
       "Built responsive React interfaces for real client-facing web applications.",
@@ -23,6 +23,8 @@ export const experiences: Experience[] = [
       "MySQL",
       "Git",
       "GitHub",
+      "Selenium",
+      "JMeter",
     ],
   },
 ];

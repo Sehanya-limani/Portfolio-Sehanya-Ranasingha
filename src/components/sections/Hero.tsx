@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { ChevronRight, Mail } from "lucide-react";
 
 import heroData from "../../data/hero";
@@ -8,12 +9,17 @@ import AnimatedText from "../common/AnimatedText";
 import SocialLinks from "../common/SocialLinks";
 import CubeSpinner from "../common/CubeSpinner";
 
+const HeroSceneWrapper = lazy(() => import("../3d/HeroSceneWrapper"));
+
 export default function Hero() {
   return (
     <section
       id="home"
       className="scroll-offset relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pt-36"
     >
+      <Suspense fallback={null}>
+        <HeroSceneWrapper />
+      </Suspense>
       <Container>
         <div className="split-grid split-grid--hero">
           <div className="order-1 flex justify-center lg:order-none lg:justify-end">

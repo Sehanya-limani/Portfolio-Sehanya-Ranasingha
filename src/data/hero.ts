@@ -10,7 +10,7 @@ export const heroData: HeroData = {
   professionalTitle: "Computer Science Undergraduate | Full Stack Developer",
 
   tagline:
-    "Third-year Computer Science undergraduate at SLIIT building full stack and AI-focused web applications with React, Spring Boot, and modern databases.",
+    "Third-year Computer Science undergraduate at SLIIT building full stack and AI-focused web applications with React, Spring Boot, .NET/C#, and modern databases.",
 
   resume: "/resume/resume.pdf",
 
@@ -21,14 +21,15 @@ export const heroData: HeroData = {
     "TypeScript",
     "Spring Boot",
     "Java",
-    "PostgreSQL",
-    "REST APIs",
-    "GitHub",
+    "C# / .NET",
+    "HTML / CSS",
+    "Selenium / JMeter",
+    "Docker",
   ],
 
   stats: [
     { value: "6", label: "Months Experience" },
-    { value: "3", label: "Core Projects" },
+    { value: "5", label: "Core Projects" },
     { value: "3rd", label: "Year at SLIIT" },
     { value: "AI", label: "Career Focus" },
   ],
