@@ -54,11 +54,8 @@ export default function Navbar() {
                   S
                 </div>
                 <div className="hidden min-w-0 lg:block">
-                  <p className="truncate text-sm font-bold leading-tight xl:text-base">
-                    <span className="gradient-text">Sehanya Ranasingha</span>
-                  </p>
-                  <p className="truncate text-[10px] text-slate-500 xl:text-xs">
-                    Internship Candidate
+                  <p className="truncate text-sm font-semibold text-white xl:text-base">
+                    Sehanya Ranasingha
                   </p>
                 </div>
               </a>
@@ -82,7 +79,7 @@ export default function Navbar() {
                 <a href="#contact" className="hidden sm:inline-flex">
                   <button
                     type="button"
-                    className="btn-primary rounded-xl px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+                    className="btn-primary rounded-lg px-4 py-2 text-xs sm:text-sm"
                   >
                     Contact Me
                   </button>

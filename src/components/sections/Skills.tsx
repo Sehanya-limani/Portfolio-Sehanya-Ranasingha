@@ -1,8 +1,8 @@
 import { skillCategories } from "../../data/skills";
+import Card3D from "../common/Card3D";
+import Reveal from "../common/Reveal";
 import Section from "../common/Section";
 import SectionHeader from "../common/SectionHeader";
-import Reveal from "../common/Reveal";
-import Card3D from "../common/Card3D";
 import SkillCategoryIcon from "../common/SkillCategoryIcon";
 import SkillIcon from "../common/SkillIcon";
 

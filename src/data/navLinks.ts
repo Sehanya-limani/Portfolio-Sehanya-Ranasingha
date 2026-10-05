@@ -32,11 +32,6 @@ export const navLinks: NavLinkItem[] = [
   },
   {
     id: 6,
-    title: "Certificates",
-    href: "#certificates",
-  },
-  {
-    id: 7,
     title: "Contact",
     href: "#contact",
   },

@@ -113,7 +113,7 @@ export default function Experience() {
             </div>
 
             <ul className="experience-points">
-              {experience.description.slice(0, 3).map((item) => (
+              {experience.description.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>

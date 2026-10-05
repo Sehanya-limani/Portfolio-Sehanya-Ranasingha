@@ -22,8 +22,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "C++" },
       { name: "Java" },
       { name: "Python" },
-      { name: "JavaScript" },
-      { name: "TypeScript" },
     ],
   },
   {
@@ -51,7 +49,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Node.js" },
       { name: "REST API" },
       { name: "OOP" },
-      { name: "Kafka" },
     ],
   },
   {
